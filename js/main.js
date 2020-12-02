@@ -3,14 +3,14 @@ $(document).ready(function(){
   
     navIspis();
     mobileNav();
+    skrol();
+    strelicaUp();
     
     let lokacija = window.location.pathname;
 
     window.onload = function() {
         if(lokacija.indexOf('index.html') != -1) {
             Jela();
-            skrol();
-            strelicaUp();
             formaDani();
             formaSati();
             formaOsobe();

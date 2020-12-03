@@ -5,22 +5,23 @@ $(document).ready(function(){
     mobileNav();
 
 
-    window.onload = function() {
-        if (window.location.href.indexOf('index.html') > -1) {
-            Jela();
-            skrol();
-            strelicaUp();
-            formaDani();
-            formaSati();
-            formaOsobe();
-            ispisBlog();
-        }
-        if (window.location.href.indexOf('menu.html') > -1) {
-            skrol();
-            strelicaUp();
-        }
-      }
 
+
+    if ($(".jela").length > 0) {
+        console.log("index str");
+        Jela();
+        skrol();
+        strelicaUp();
+        formaDani();
+        formaSati();
+        formaOsobe();
+        ispisBlog();
+        }
+
+    if($(".meniSlajder").length > 0){
+        skrol();
+        strelicaUp();
+    }
     /*
     let lokacija = window.location.pathname;
 
@@ -47,10 +48,11 @@ $(document).ready(function(){
     
     } */
     
-    // scroll
-    var rootElement = document.documentElement;
-    var strelica = document.querySelector(".up");
+
+    // scroll  
     function skrol(){    
+        var rootElement = document.documentElement;
+        var strelica = document.querySelector(".up");
         if(document.body.scrollTop > 220 || rootElement.scrollTop > 220){
             strelica.style.display="block";
         }
@@ -61,6 +63,7 @@ $(document).ready(function(){
     }
 
     function strelicaUp(){
+        var strelica = document.querySelector(".up");
         strelica.addEventListener("click",function(){
             $("html, body").animate({ scrollTop: 0 }, "slow");
         });
@@ -90,11 +93,11 @@ $(document).ready(function(){
             });
         }
         
-        // breakfast,lunch,dinner,desserts 
-        let nizSlikeJela = [["img/cook_breakfast.png","Breakfast"],["img/cook_lunch.png","Lunch"],["img/cook_dinner.png","Dinner"],["img/cook_dessert.png","Desserts"]];
-        let nizImeJela = ["Breakfast","Lunch","Dinner","Desserts"];
+        // breakfast,lunch,dinner,desserts        
         function Jela(){
-                let jela = document.querySelector(".jela");
+            let nizSlikeJela = [["img/cook_breakfast.png","Breakfast"],["img/cook_lunch.png","Lunch"],["img/cook_dinner.png","Dinner"],["img/cook_dessert.png","Desserts"]];
+            let nizImeJela = ["Breakfast","Lunch","Dinner","Desserts"];
+            let jela = document.querySelector(".jela");
                 for(let i=0;i<nizImeJela.length;i++){
                     jela.innerHTML+=`<div class="col-md-3 col-sm-6 col-xs-12  pt-5">
                     <div class="service-item">
@@ -110,13 +113,12 @@ $(document).ready(function(){
         //forma dinamicko ispisivanje
 
         //za dane
-        var dani = document.querySelector("#dani");
-        var nizDanVrednost = ["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
-        var nizDanTekst  = Array.from(nizDanVrednost);
-        nizDanTekst.shift();
-        nizDanTekst.unshift("Select day");
-
         function formaDani(){
+            var dani = document.querySelector("#dani");
+            var nizDanVrednost = ["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+            var nizDanTekst  = Array.from(nizDanVrednost);
+            nizDanTekst.shift();
+            nizDanTekst.unshift("Select day");
             for(let i=0;i<nizDanTekst.length;i++){
                 var opcijaDan = document.createElement("option");
                 opcijaDan.setAttribute('value',nizDanVrednost[i]);
@@ -126,13 +128,12 @@ $(document).ready(function(){
         }
 
         // za sate
-        var sat = document.querySelector("#sat");
-        var satiVrednost = ["","10-00","12-00","14-00","16-00","18-00","20-00","22-00"];
-        var satiTekst = Array.from(satiVrednost);
-        satiTekst.shift();
-        satiTekst.unshift("Select hour");
-
         function formaSati(){
+            var sat = document.querySelector("#sat");
+            var satiVrednost = ["","10-00","12-00","14-00","16-00","18-00","20-00","22-00"];
+            var satiTekst = Array.from(satiVrednost);
+            satiTekst.shift();
+            satiTekst.unshift("Select hour");
             for(let i=0;i<satiVrednost.length;i++){
                 var opcijaSat = document.createElement("option");
                 opcijaSat.setAttribute('value',satiVrednost[i]);
@@ -141,13 +142,12 @@ $(document).ready(function(){
             }
         }
         // za osobe
-        var osobe = document.querySelector("#osobe");
-        var osobeVrednost = ["","1-Person","2-Persons","3-Persons","4-Persons","5-Persons","6-Persons"];
-        var osobeTekst = Array.from(osobeVrednost);
-        osobeTekst.shift();
-        osobeTekst.unshift("How many persons?");
-
         function formaOsobe(){
+            var osobe = document.querySelector("#osobe");
+            var osobeVrednost = ["","1-Person","2-Persons","3-Persons","4-Persons","5-Persons","6-Persons"];
+            var osobeTekst = Array.from(osobeVrednost);
+            osobeTekst.shift();
+            osobeTekst.unshift("How many persons?");
             for(let i=0;i<osobeVrednost.length;i++){
                 var opcijaOsobe = document.createElement("option");
                 opcijaOsobe.setAttribute('value',osobeVrednost[i]);
@@ -156,16 +156,16 @@ $(document).ready(function(){
             }
         }
 
-        //ispisivanje blog dela dinamicki
-        var blog = document.querySelector(".blogovi");
-        var nazivBloga=["Private Parties","Live Music","Food Tasting Event","Love is in the air"];
-        var sadrzajBloga = [
+        //ispisivanje blog dela dinamicki 
+        function ispisBlog(){
+            var blog = document.querySelector(".blogovi");
+            var nazivBloga=["Private Parties","Live Music","Food Tasting Event","Love is in the air"];
+            var sadrzajBloga = [
             "95 Slide Restaurant is happy to be the venue for your reunion, party, luncheon.With two banquet rooms, 95 Slide Restaurant can transform a space into the perfect  site for your gathering.",
             "An ordinary dinner can turn into an unforgettable night out that you will remember for the rest of your life. Good time always starts with a good meal, and a nice music is just a bonus.",
             "You could try multitude of menus: vegetarian,ethnic, gluten-free, locally-sourced, based on a specific meat, cheese or pasta, soup-driven, centeredon a specific region and much more.",
             "You don’t have to wait for Valentine’s Day to create a romantic tradition.Come to us for dinner and maybe you will meet the love of your life. You will thank us later"];
-        
-        function ispisBlog(){
+
             let br=1;
             for(let i=0;i<nazivBloga.length;i++){
                 blog.innerHTML+=`

@@ -10,9 +10,8 @@ $(document).ready(function(){
         Jela();
         skrol();
         strelicaUp();
-        formaDani();
-        formaSati();
-        formaOsobe();
+        formaIndex();
+ 
         ispisBlog();
         }
 
@@ -96,10 +95,9 @@ $(document).ready(function(){
                 }
         }
         
-        //forma dinamicko ispisivanje
-
-        //za dane
-        function formaDani(){
+        //forma dinamicko ispisivanje        
+        function formaIndex(){
+            //za dane
             var dani = document.querySelector("#dani");
             var nizDanVrednost = ["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
             var nizDanTekst  = Array.from(nizDanVrednost);
@@ -111,10 +109,8 @@ $(document).ready(function(){
                 opcijaDan.textContent=nizDanTekst[i];      
                 dani.appendChild(opcijaDan);   
             }
-        }
-
+    
         // za sate
-        function formaSati(){
             var sat = document.querySelector("#sat");
             var satiVrednost = ["","10-00","12-00","14-00","16-00","18-00","20-00","22-00"];
             var satiTekst = Array.from(satiVrednost);
@@ -126,9 +122,8 @@ $(document).ready(function(){
                 opcijaSat.textContent=satiTekst[i];      
                 sat.appendChild(opcijaSat);   
             }
-        }
+        
         // za osobe
-        function formaOsobe(){
             var osobe = document.querySelector("#osobe");
             var osobeVrednost = ["","1-Person","2-Persons","3-Persons","4-Persons","5-Persons","6-Persons"];
             var osobeTekst = Array.from(osobeVrednost);
@@ -141,7 +136,6 @@ $(document).ready(function(){
                 osobe.appendChild(opcijaOsobe);   
             }
         }
-
         //ispisivanje blog dela dinamicki 
         function ispisBlog(){
             var blog = document.querySelector(".blogovi");

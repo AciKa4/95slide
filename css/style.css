@@ -349,8 +349,10 @@ section.breakfast-menu {
     height: 20px;
     margin: 0 5px;
     padding: 0;
-    cursor: pointer;
+	cursor: pointer;
+	
 }
+
 
 .slick-dots li button {
     font-size: 0;
@@ -377,7 +379,8 @@ section.breakfast-menu {
     height: 20px;
     text-align: center;
     opacity: .55;
-    color: #000;
+    color: #f2745f;
+	font-size:30px;
 }
 
 .meal{
@@ -502,6 +505,12 @@ section.map #map {
 	.meni{
 		margin:10px auto;
 	}
+	.rp{
+		margin:0px auto;
+	}
+	.slick-dots {
+		text-align:center;
+	  }
 }
 
 @media screen and (max-width:767px){

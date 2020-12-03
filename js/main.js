@@ -4,6 +4,7 @@ $(document).ready(function(){
     navIspis();
     mobileNav();
     Futer();
+    
 
     if ($(".jela").length > 0) {
         Jela();
@@ -16,21 +17,11 @@ $(document).ready(function(){
         }
 
     if($(".meniSlajder").length > 0){
+        Meni();
         skrol();
-        strelicaUp();
+        strelicaUp();      
     }
-    /*
-    window.onload = function() {
-        if(lokacija.indexOf('index.html') != -1) {
-            Jela();
-            skrol();
-            strelicaUp();
-            formaDani();
-            formaSati();
-            formaOsobe();
-            ispisBlog();
-        }
-      
+    /*      
     if(lokacija.indexOf('menu.html') != -1) {
         skrol();
         strelicaUp();
@@ -200,12 +191,84 @@ $(document).ready(function(){
             blok.appendChild(ul);
         }
         
-        /*<ul class="social-icons pt-2">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                    </ul> */
+        //Breakfast, lunch, dinner dinamicki
+        function Meni(){
+            var slikaJela = [
+            ["img/muffins.png","21 Healthy Muffins"],
+            ["img/nectarine.png","Nectarine Bruschetta"],
+            ["img/sheetpan.png","Sheet Pan Pancake"],
+            ["img/baked.png","Oven-Baked Pizzas"],
+            ["img/saus.png","Sheet Pan Sausage"],
+            ["img/tuna.png","Tuna & Avocado Wrap"],
+            ["img/chicken.png","BBQ Chicken"],
+            ["img/roast.png","Pot Roast"],
+            ["img/shrimp.png","Classic Shrimp Creole"],
+            ];
+            var tekst =[
+                ["It can be hard to start the morning off right </br>with a good-for-you baked good"],
+                ["Simple and sophisticated, this fruity toast is perfect for breakfast."],
+                ["For a different flavor, swap blueberries for blackberries or sliced strawberries."],
+                ["Pizza night is the best night  especially when everyone </br>gets to build their dream slice."],
+                ["Sheet Pan Sausage</h4>Line the sheet pan with parchment or foil for the quickest cleanup — then serve over rice, stuffed into a pita."],
+                ["Canned tuna gets a quick upgrade with hot sauce, Dijon, and green onions — piled into whole wheat tortillas."],
+                ["Heads up that this one does have to cook for a few hours, so you'll need to plan accordingly."],
+                ["You don't have an excuse not to take this simple pot roast."],
+                ["This saucy Shrimp Creole will transport you to the balcony-lined streets of New Orleans.Note that this dish has kick—if you're not a fan of spice"]
+            ];
+            var cena = ["$6.75","$4.5","$5.5","$8","$10","$12.75","$14","$16","$10"];
+
+           
+            var blok1 = document.querySelector('.blok1');
+            var blok2 = document.querySelector('.blok2');
+            var blok3 = document.querySelector('.blok3');
+
+             // breakfast
+            for(let i=0;i<slikaJela.length/3;i++){
+                blok1.innerHTML+= `
+                <div class="item">
+                    <div class="food-item">
+                        <img src="${slikaJela[i][0]}" alt="${slikaJela[i][1]}" >
+                        <div class="price">${cena[i]}</div>
+                        <div class="text-content">
+                            <h4>${slikaJela[i][1]}</h4>
+                            <p>${tekst[i]}</p>
+                        </div>
+                    </div>
+                </div>`    
+            }
+            //lunch
+            for(let i = 3; i <slikaJela.length -slikaJela.length/3;i++){
+                blok2.innerHTML+= `
+                <div class="item">
+                    <div class="food-item">
+                        <img src="${slikaJela[i][0]}" alt="${slikaJela[i][1]}" >
+                        <div class="price">${cena[i]}</div>
+                        <div class="text-content">
+                            <h4>${slikaJela[i][1]}</h4>
+                            <p>${tekst[i]}</p>
+                        </div>
+                    </div>
+                </div>`
+            }
+            //dinner
+            for(let i = 6; i <slikaJela.length;i++){
+                blok3.innerHTML+= `
+                <div class="item">
+                    <div class="food-item">
+                        <img src="${slikaJela[i][0]}" alt="${slikaJela[i][1]}" >
+                        <div class="price">${cena[i]}</div>
+                        <div class="text-content">
+                            <h4>${slikaJela[i][1]}</h4>
+                            <p>${tekst[i]}</p>
+                        </div>
+                    </div>
+                </div>`
+            }
+            //slike
+        }
+
+
+
 });
 
 

@@ -6,18 +6,8 @@ $(document).ready(function(){
     Futer();
     
 
-    var lok = window.location.href;
    
-    if(lok.indexOf("index.html") != -1){
-        Jela();
-        skrol();
-        strelicaUp();
-        formaIndex();
- 
-        ispisBlog();
-    }
-
-   /* if ($(".jela").length > 0) {
+   if ($(".jela").length > 0) {
         Jela();
         skrol();
         strelicaUp();
@@ -31,7 +21,7 @@ $(document).ready(function(){
         skrol();
         strelicaUp();      
     }
-          
+          /*
     if(lokacija.indexOf('menu.html') != -1) {
         skrol();
         strelicaUp();

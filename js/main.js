@@ -5,6 +5,23 @@ $(document).ready(function(){
     mobileNav();
 
 
+    window.onload = function() {
+        if (window.location.href.indexOf('index.html') > -1) {
+            Jela();
+            skrol();
+            strelicaUp();
+            formaDani();
+            formaSati();
+            formaOsobe();
+            ispisBlog();
+        }
+        if (window.location.href.indexOf('menu.html') > -1) {
+            skrol();
+            strelicaUp();
+        }
+      }
+
+    /*
     let lokacija = window.location.pathname;
 
     window.onload = function() {
@@ -22,14 +39,14 @@ $(document).ready(function(){
         skrol();
         strelicaUp();
     }
-    /*
+    
     if(lokacija.indexOf('contact') != -1) {
    
     }
     if(lokacija.indexOf('trips') != -1) {
     
     } */
-    }
+    
     // scroll
     var rootElement = document.documentElement;
     var strelica = document.querySelector(".up");

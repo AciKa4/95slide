@@ -3,12 +3,9 @@ $(document).ready(function(){
   
     navIspis();
     mobileNav();
-
-
-
+    Futer();
 
     if ($(".jela").length > 0) {
-        console.log("index str");
         Jela();
         skrol();
         strelicaUp();
@@ -23,8 +20,6 @@ $(document).ready(function(){
         strelicaUp();
     }
     /*
-    let lokacija = window.location.pathname;
-
     window.onload = function() {
         if(lokacija.indexOf('index.html') != -1) {
             Jela();
@@ -182,8 +177,35 @@ $(document).ready(function(){
                 br++;
             }
         }
-        
 
+        //za footer
+
+        function Futer(){
+            var nizSoc = ["fa fa-facebook","fa fa-twitter","fa fa-linkedin","fa fa-rss"];
+            var blok = document.querySelector(".futer");
+            
+            var ul = document.createElement("ul");
+            ul.classList.add('social-icons','pt-2');
+            for(let i=0;i<nizSoc.length;i++){   
+                var li = document.createElement("li");
+                var a = document.createElement("a");
+                a.setAttribute('href','#');
+                var ielem = document.createElement("i");
+                ielem.className = nizSoc[i];
+                console.log(nizSoc[i]);
+                a.appendChild(ielem);
+                li.appendChild(a);
+                ul.appendChild(li);
+            }
+            blok.appendChild(ul);
+        }
+        
+        /*<ul class="social-icons pt-2">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                    </ul> */
 });
 
 

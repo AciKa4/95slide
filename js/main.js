@@ -6,7 +6,18 @@ $(document).ready(function(){
     Futer();
     
 
-    if ($(".jela").length > 0) {
+    var lok = window.location.href;
+   
+    if(lok.indexOf("index.html") != -1){
+        Jela();
+        skrol();
+        strelicaUp();
+        formaIndex();
+ 
+        ispisBlog();
+    }
+
+   /* if ($(".jela").length > 0) {
         Jela();
         skrol();
         strelicaUp();
@@ -20,7 +31,7 @@ $(document).ready(function(){
         skrol();
         strelicaUp();      
     }
-    /*      
+          
     if(lokacija.indexOf('menu.html') != -1) {
         skrol();
         strelicaUp();
@@ -177,7 +188,6 @@ $(document).ready(function(){
                 a.setAttribute('href','#');
                 var ielem = document.createElement("i");
                 ielem.className = nizSoc[i];
-                console.log(nizSoc[i]);
                 a.appendChild(ielem);
                 li.appendChild(a);
                 ul.appendChild(li);

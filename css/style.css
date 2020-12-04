@@ -81,7 +81,7 @@ a{
 	outline: none;
 	border-bottom: 1px solid #eee;	
 	font-size: 14px;
-	color: #9a9a9a;
+	color: #000;
 	padding-left: 10px;
 	height: 40px;
 }
@@ -96,7 +96,7 @@ a{
 	border-top: none;
 	border-bottom: 1px solid #eee;
 	font-size: 14px;
-	color: #9a9a9a;
+	color: #000;
 }
 
 .right-info button {

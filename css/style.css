@@ -486,11 +486,21 @@ section.map #map {
 	color:red;
 	font-size:14px;
 	font-weight:bold;
-}
-.ime input[type='text']{
-	border:1px solid red;	
+	display:none;
 }
 
+
+/* tekst show more*/
+.dugme{
+	display:block;
+	color:#f2745f;
+	font-weight:bold;
+	cursor:pointer;
+	width:20%;
+}
+.tekstS{
+	display:none;
+}
 
 
 /* Media query*/

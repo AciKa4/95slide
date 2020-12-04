@@ -18,10 +18,16 @@ $(document).ready(function(){
 
     if($(".meniSlajder").length > 0){
         Meni();
-        skrol();
-        strelicaUp();      
+        strelicaUp();
+        skrol();      
     }
           /*
+
+
+    
+
+
+
     if(lokacija.indexOf('menu.html') != -1) {
         skrol();
         strelicaUp();
@@ -35,17 +41,20 @@ $(document).ready(function(){
     } */
     
 
-    // scroll  
-    function skrol(){    
-        var rootElement = document.documentElement;
-        var strelica = document.querySelector(".up");
-        if(document.body.scrollTop > 220 || rootElement.scrollTop > 220){
-            strelica.style.display="block";
-        }
-        else{
-            strelica.style.display="none";
-        }
-        document.addEventListener("scroll",skrol); 
+    // scroll 
+    
+    function skrol(){
+        $(window).scroll(function(){    
+            var rootElement = document.documentElement;
+            var strelica = document.querySelector(".up");
+            if(document.body.scrollTop > 220 || rootElement.scrollTop > 220){
+                strelica.style.display="block";
+            }
+            else{
+                strelica.style.display="none";
+            }
+            
+        });
     }
 
     function strelicaUp(){
@@ -57,7 +66,7 @@ $(document).ready(function(){
     
     //ispis navigacije
     function navIspis() {
-        var meniN=[["index.html","Home"],["menu.html","Our Menu"],["author.html","Author"],["contact.html","Contact"],["#","Docs"]];
+        var meniN=[["index.html","Home"],["menu.html","Our Menu"],["author.html","Author"],["contact.html","Contact"],["proba1.docx","Docs"]];
         var meniDiv = document.querySelector(".meni");
 
          for(let i=0;i<meniN.length;i++){
@@ -74,6 +83,11 @@ $(document).ready(function(){
 
     //responsive navigacija
         function mobileNav(){  
+            var width = $(document).width();
+
+            if(width <= 657){
+                $('.meni li').hide();
+            }
             $('.hamb').click(function(){
                 $(".meni li").slideToggle('slow');
             });
@@ -99,7 +113,7 @@ $(document).ready(function(){
         //forma dinamicko ispisivanje        
         function formaIndex(){
             //za dane
-            var dani = document.querySelector("#dani");
+            var dani = document.querySelector("#dan");
             var nizDanVrednost = ["","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
             var nizDanTekst  = Array.from(nizDanVrednost);
             nizDanTekst.shift();
@@ -165,7 +179,6 @@ $(document).ready(function(){
         }
 
         //za footer
-
         function Futer(){
             var nizSoc = ["fa fa-facebook","fa fa-twitter","fa fa-linkedin","fa fa-rss"];
             var blok = document.querySelector(".futer");
@@ -185,6 +198,49 @@ $(document).ready(function(){
             blok.appendChild(ul);
         }
         
+        //za validaciju forme
+
+       var cuvanjePodataka = [];
+
+       $(".btn").click(function(){
+
+        var dan = $('#dan option:selected').val();
+        var sat = $("#sat option:selected").val();
+        var osoba= $("#osobe option:selected").val();
+
+        var tel = $("#phone");
+        var ime = $("#name");
+
+        var imePrezimeRegex =  /^[a-zA-Z]{3,15}(\s[a-zA-Z]{3,15})+$/;
+        var telefonRegex = /^\d{8,13}$/ ;
+
+
+        if(ime.val() == ''){
+            ime.css({
+                'border':'1px solid  #e60000'
+            });
+            console.log(ime);
+            ime.val("");
+            ime.attr('placeholder','Name can not be empty');
+        }
+
+        else if(!imePrezimeRegex.test(ime.val())){
+            ime.css({
+                'border':'1px solid  #e60000'
+            });
+            ime.val("");
+            ime.attr('placeholder','eg Aleksandar Arsic')
+        }
+        else {
+            ime.css({
+                'border':'1px solid  #fff'
+            });
+        }
+
+        
+       });
+
+
         //Breakfast, lunch, dinner dinamicki
         function Meni(){
             var slikaJela = [
@@ -261,7 +317,22 @@ $(document).ready(function(){
             //slike
         }
 
+        //contact stranica
 
+        var buttonMore = $(".dugme");
+        var textMore = $(".tekstS");
+            
+        buttonMore.click(function(){
+            textMore.toggle('slow',function(){
+                if(textMore.is(":visible")){
+                    buttonMore.text("Show less");
+                }
+                else
+                {
+                    buttonMore.text("Show more");
+                }
+            });                  
+        });
 
 });
 

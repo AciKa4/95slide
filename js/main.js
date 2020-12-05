@@ -68,7 +68,7 @@ function mobileNav(){
     });
 }
 
-// breakfast,lunch,dinner,desserts        
+// breakfast,lunch,dinner,desserts   (index.stranica)     
 function Jela(){
     let nizSlikeJela = [["img/cook_breakfast.png","Breakfast"],["img/cook_lunch.png","Lunch"],["img/cook_dinner.png","Dinner"],["img/cook_dessert.png","Desserts"]];
     let nizImeJela = ["Breakfast","Lunch","Dinner","Desserts"];
@@ -85,7 +85,7 @@ function Jela(){
     }
 }
 
-//forma dinamicko ispisivanje        
+//forma dinamicko ispisivanje (index stranica)       
 function formaIndex(){
 //za dane
     var dani = document.querySelector("#dan");
@@ -98,35 +98,35 @@ function formaIndex(){
         opcijaDan.setAttribute('value',nizDanVrednost[i]);
         opcijaDan.textContent=nizDanTekst[i];      
         dani.appendChild(opcijaDan);   
-}
+    }
 
 // za sate
-var sat = document.querySelector("#sat");
-var satiVrednost = ["","10-00","12-00","14-00","16-00","18-00","20-00","22-00"];
-var satiTekst = Array.from(satiVrednost);
-satiTekst.shift();
-satiTekst.unshift("Select hour");
-for(let i=0;i<satiVrednost.length;i++){
-    var opcijaSat = document.createElement("option");
-    opcijaSat.setAttribute('value',satiVrednost[i]);
-    opcijaSat.textContent=satiTekst[i];      
-    sat.appendChild(opcijaSat);   
-}
+    var sat = document.querySelector("#sat");
+    var satiVrednost = ["","10-00","12-00","14-00","16-00","18-00","20-00","22-00"];
+    var satiTekst = Array.from(satiVrednost);
+    satiTekst.shift();
+    satiTekst.unshift("Select hour");
+        for(let i=0;i<satiVrednost.length;i++){
+            var opcijaSat = document.createElement("option");
+            opcijaSat.setAttribute('value',satiVrednost[i]);
+            opcijaSat.textContent=satiTekst[i];      
+            sat.appendChild(opcijaSat);   
+        }
 
-// za osobe
-var osobe = document.querySelector("#osobe");
-var osobeVrednost = ["","1-Person","2-Persons","3-Persons","4-Persons","5-Persons","6-Persons"];
-var osobeTekst = Array.from(osobeVrednost);
-osobeTekst.shift();
-osobeTekst.unshift("How many persons?");
-for(let i=0;i<osobeVrednost.length;i++){
-    var opcijaOsobe = document.createElement("option");
-    opcijaOsobe.setAttribute('value',osobeVrednost[i]);
-    opcijaOsobe.textContent=osobeTekst[i];      
-    osobe.appendChild(opcijaOsobe);   
+// za osobe 
+    var osobe = document.querySelector("#osobe");
+    var osobeVrednost = ["","1-Person","2-Persons","3-Persons","4-Persons","5-Persons","6-Persons"];
+    var osobeTekst = Array.from(osobeVrednost);
+    osobeTekst.shift();
+    osobeTekst.unshift("How many persons?");
+        for(let i=0;i<osobeVrednost.length;i++){
+            var opcijaOsobe = document.createElement("option");
+            opcijaOsobe.setAttribute('value',osobeVrednost[i]);
+            opcijaOsobe.textContent=osobeTekst[i];      
+            osobe.appendChild(opcijaOsobe);   
+        }
 }
-}
-//ispisivanje blog dela dinamicki 
+//ispisivanje Blog dela dinamicki (index stranica)
 function ispisBlog(){
     var blog = document.querySelector(".blogovi");
     var nazivBloga=["Private Parties","Live Music","Food Tasting Event","Love is in the air"];
@@ -157,9 +157,9 @@ function ispisBlog(){
 function Futer(){
     var nizSoc = ["fa fa-facebook","fa fa-twitter","fa fa-linkedin","fa fa-rss"];
     var blok = document.querySelector(".futer");
-
     var ul = document.createElement("ul");
     ul.classList.add('social-icons','pt-2');
+
     for(let i=0;i<nizSoc.length;i++){   
         var li = document.createElement("li");
         var a = document.createElement("a");
@@ -173,7 +173,7 @@ function Futer(){
         blok.appendChild(ul);
 }
 
-//za validaciju forme
+//Regularni izraz i validacija prve forme (index stranica)
 
 var cuvanjePodataka = [];
 var validnostDan = $("#formaDan");
@@ -187,7 +187,7 @@ $(".btn").click(function(){
     var dan = $('#dan option:selected').val();
     var sat = $("#sat option:selected").val();
     var osoba= $("#osobe option:selected").val();
-    var email = $("#email1");
+    var email = $("#email");
     var ime = $("#name");
     var br = 0;
     var imePrezimeRegex =  /^[a-zA-Z]{3,15}(\s[a-zA-Z]{3,15})+$/;
@@ -223,7 +223,6 @@ $(".btn").click(function(){
         email.val("");
         email.attr('placeholder','Email adress can not be empty');
     }
-
     else if(!emailRegex.test(email.val())){
         email.css({
         'border':'1px solid  #e60000'
@@ -237,53 +236,6 @@ $(".btn").click(function(){
         });
         br++
     }
-
-    // telefon
-    var telefonRegex = /^\d{8,13}$/
-    var tel = $("#phone");
-    var validacija = $("#forma2");
-
-    if(tel.val() == ''){
-        tel.css({
-        'border':'1px solid  #e60000'
-        });
-        tel.val("");
-        tel.attr('placeholder','Phone  can not be empty');
-    }
-    else if(!telefonRegex.test(tel.val())){
-        tel.css({
-        'border':'1px solid  #e60000'
-        });
-        tel.val("");
-        tel.attr('placeholder','Phone between 8 and 13 digits');
-    }
-    else {
-        tel.css({
-        'border':'1px solid  #fff'
-    });
-}
-
-
-
-//za text polje
-var tekstPolje =$("#message");
-var tekstValid = 0;
-
-
-if(tekstPolje.val() == ''){
-    tekstPolje.css({
-    'border':'1px solid  #e60000'
-    });
-    tekstPolje.val("");
-    tekstPolje.attr('placeholder','You can not send empty message');
-}
-else {
-    tekstPolje.css({
-    'border':'1px solid  #fff'
-    });
-    tekstValid = 1;
-}
-
 //dani
 if(dan == ''){
     validnostDan.show();
@@ -311,25 +263,139 @@ else {
     br++;
 }
 
+
 //podaci za prvu formu (index)
 var podaci = $("#podaci");
 if(br == 5){
     podaci.show();
     podaci.html('Dear' + ' ' +ime.val()+', '+'Your table is booked for' + ' ' + dan +' '+'in'+' '+sat+' '+'hours'+' '+'for'+' '+osoba);
+    ime.val("");
+    ime.attr('placeholder','Full name');
+    email.val("");
+    email.attr('placeholder','Email');
+    $('#dan option:first').attr('selected',true);
+    $('#dan option:first').text('Select a day');
+
+    $('#sat option:first').attr('selected',true);
+    $('#sat option:first').text('Select a hour');
+
+    $('#osobe option:first').attr('selected',true);
+    $('#osobe option:first').text('How many persons?');
+    br = 0;
 }
 else{
     podaci.hide();
 }
 
-//provera za drugu formu (contact)
-if(imePrezimeRegex.test(ime.val()) && telefonRegex.test(tel.val()) && emailRegex.test(email.val()) && tekstValid == 1){
-    validacija.show();
+//Regularni izraz i validacija druge forme (contact stranica)
+var email1 = $("#email1");
+var ime1 = $("#name1");
+var validacija = $("#forma2");
+
+// telefon
+    var telefonRegex = /^\d{8,13}$/
+    var tel = $("#phone");
+
+    if(tel.val() == ''){
+        tel.css({
+        'border':'1px solid  #e60000'
+        });
+        tel.val("");
+        tel.attr('placeholder','Phone  can not be empty');
+    }
+    else if(!telefonRegex.test(tel.val())){
+        tel.css({
+        'border':'1px solid  #e60000'
+        });
+        tel.val("");
+        tel.attr('placeholder','Phone between 8 and 13 digits');
+    }
+    else {
+        tel.css({
+        'border':'1px solid  #fff'
+    });
 }
-else
+//za text polje
+var tekstPolje =$("#message");
+var tekstValid = 0;
+
+if(tekstPolje.val() == ''){
+    tekstPolje.css({
+    'border':'1px solid  #e60000'
+    });
+    tekstPolje.val("");
+    tekstPolje.attr('placeholder','You can not send empty message');
+    tekstValid = 0;
+}
+else {
+    tekstPolje.css({
+    'border':'1px solid  #fff'
+    });
+    tekstValid = 1;
+}
+
+//za email contact stranice
+if(email1.val() == ''){
+    email1.css({
+    'border':'1px solid  #e60000'
+    });
+    email1.val("");
+    email1.attr('placeholder','Email adress can not be empty');
+}
+else if(!emailRegex.test(email1.val())){
+    email1.css({
+    'border':'1px solid  #e60000'
+    });
+    email1.val("");
+    email1.attr('placeholder','eg aleksandar14@gmail.com');
+}
+else {
+    email1.css({
+    'border':'1px solid  #fff'
+    });
+    br++
+}
+//ime contact stranice
+if(ime1.val() == ''){
+    ime1.css({
+    'border':'1px solid  #e60000'
+    });
+    ime1.val("");
+    ime1.attr('placeholder','Name can not be empty');
+}
+
+else if(!imePrezimeRegex.test(ime1.val())){
+    ime1.css({
+    'border':'1px solid  #e60000'
+    });
+    ime1.val("");
+    ime1.attr('placeholder','eg Aleksandar Arsic');
+}
+else {
+ime1.css({
+    'border':'1px solid  #fff'
+    });
+    br++;
+}
+//provera za drugu formu (contact stranica)
+if(imePrezimeRegex.test(ime1.val()) && telefonRegex.test(tel.val()) && emailRegex.test(email1.val()) && tekstValid == 1){
+    validacija.show();
+    ime1.val("");
+    ime1.attr('placeholder','Full name');
+    email1.val("");
+    email1.attr('placeholder','Email');
+    tekstPolje.val("");
+    tekstPolje.attr('placeholder','Your message..');
+    tel.val("");
+    tel.attr('placeholder','Your phone number');
+}
+else{
     validacija.hide();
+}
 });
 
-//Breakfast, lunch, dinner dinamicki
+
+//Breakfast, lunch, dinner dinamicki (our menu stranica)
 function Meni(){
     var slikaJela = [
     ["img/muffins.png","21 Healthy Muffins"],
@@ -405,7 +471,7 @@ function Meni(){
 
 }
 
-//contact stranica
+//contact stranica - dugme za show less show more
 var buttonMore = $(".dugme");
 var textMore = $(".tekstS");
 

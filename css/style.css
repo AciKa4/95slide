@@ -493,7 +493,7 @@ section.map #map {
 
 /* forma validnost */
 #formaDan,#formaSat,#formaOsoba{
-	color:red;
+	color:#a83232;
 	font-size:14px;
 	font-weight:bold;
 }
@@ -511,7 +511,13 @@ section.map #map {
 	display:none;
 }
 
-
+#lin{
+	text-decoration: none;
+	color:#f2745f;
+}
+#lin:hover{
+	color:#6d342a;
+}
 /* Media query*/
 @media screen and (max-width:1200px){
 	.left-image{
@@ -548,6 +554,9 @@ section.map #map {
 	.profile{
 		text-align:center;
 	}
+	.contact-info{
+		padding-top:2rem;
+	}
 }
 @media screen and (max-width:640px){
 	.hamb{
@@ -562,4 +571,5 @@ section.map #map {
 		border-bottom:1px solid #eaf0ff;
 	}
 }
+
 

@@ -4,6 +4,8 @@ $(document).ready(function(){
     mobileNav();
     Futer();
 
+
+//poziv funkcija za index stranu
 if ($(".jela").length > 0) {
     Jela();
     skrol();
@@ -11,7 +13,7 @@ if ($(".jela").length > 0) {
     formaIndex();
     ispisBlog();
 }
-
+//poziv funkcija za our  menu stranu
 if($(".meniSlajder").length > 0){
     Meni();
     strelicaUp();
@@ -40,7 +42,7 @@ function strelicaUp(){
 
 //ispis navigacije
 function navIspis() {
-    var meniN=[["index.html","Home"],["menu.html","Our Menu"],["author.html","Author"],["contact.html","Contact"],["documenation.pdf","Docs"]];
+    var meniN=[["index.html","Home"],["menu.html","Our Menu"],["author.html","Author"],["contact.html","Contact"],["doc.pdf","Docs"]];
     var meniDiv = document.querySelector(".meni");
 
     for(let i=0;i<meniN.length;i++){
@@ -60,10 +62,13 @@ function mobileNav(){
     var width = $(document).width();
     
     if(width <= 657){
-    $('.meni li').hide();
+        $('.meni li').hide();
+    }
+    else{
+        $('.meni li').show();
     }
     $('.hamb').click(function(){
-        $(".meni li").slideToggle('slow');
+        $(".meni li").stop().slideToggle('slow');
     });
 }
 
@@ -152,9 +157,10 @@ function ispisBlog(){
     }
 }
 
-//za footer
+//dinamicki deo  footera
 function Futer(){
-    var nizSoc = ["fa fa-facebook","fa fa-twitter","fa fa-linkedin","fa fa-rss"];
+    var nizSoc = ["fa fa-facebook","fa fa-twitter","fa fa-linkedin","fa fa-sitemap"];
+    var nizHref = ["https://www.facebook.com/","https://twitter.com/?lang=en","https://rs.linkedin.com/","sitemap.xml"]
     var blok = document.querySelector(".futer");
     var ul = document.createElement("ul");
     ul.classList.add('social-icons','pt-2');
@@ -162,7 +168,8 @@ function Futer(){
     for(let i=0;i<nizSoc.length;i++){   
         var li = document.createElement("li");
         var a = document.createElement("a");
-        a.setAttribute('href','#');
+        a.setAttribute('href',nizHref[i]);
+        a.setAttribute('target','_blank');
         var ielem = document.createElement("i");
         ielem.className = nizSoc[i];
         a.appendChild(ielem);

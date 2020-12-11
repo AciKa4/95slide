@@ -86,7 +86,7 @@ function Jela(){
     for(let i=0;i<nizImeJela.length;i++){
         jela.innerHTML+=`<div class="col-md-3 col-sm-6 col-xs-12  pt-5">
         <div class="service-item">
-        <a href="menu.html" class="text-center">
+        <a href="ourmenu.html" class="text-center">
         <img src="${nizSlikeJela[i][0]}" alt="${nizSlikeJela[i][1]}" class="center">
         <h4>${nizImeJela[i]}</h4>
         </a>

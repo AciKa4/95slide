@@ -42,8 +42,9 @@ function strelicaUp(){
 
 //ispis navigacije
 function navIspis() {
-    var meniN=[["index.html","Home"],["menu.html","Our Menu"],["author.html","Author"],["contact.html","Contact"],["doc.pdf","Docs"]];
+    var meniN=[["index.html","Home"],["ourmenu.html","Our Menu"],["author.html","Author"],["contact.html","Contact"],["doc.pdf","Docs"]];
     var meniDiv = document.querySelector(".meni");
+    var meniResp = document.querySelector(".meniResp");
 
     for(let i=0;i<meniN.length;i++){
         var liElem = document.createElement("li");
@@ -55,20 +56,25 @@ function navIspis() {
         liElem.appendChild(aElem);
         meniDiv.appendChild(liElem);
     }
+    //za responsive navigaciju
+    for(let i=0;i<meniN.length;i++){
+        var liElem = document.createElement("li");
+        var aElem = document.createElement("a");
+        aElem.setAttribute('href',meniN[i][0]);
+        aElem.classList.add('nav-link');
+        aElem.textContent= meniN[i][1];
+        liElem.classList.add('nav-item');
+        liElem.appendChild(aElem);
+        meniResp.appendChild(liElem);
+    }
 }
 
 //responsive navigacija
 function mobileNav(){  
     var width = $(document).width();
-    
-    if(width <= 657){
-        $('.meni li').hide();
-    }
-    else{
-        $('.meni li').show();
-    }
+    $(".meniResp li").hide();
     $('.hamb').click(function(){
-        $(".meni li").stop().slideToggle('slow');
+     $(".meniResp li").stop().slideToggle('slow');
     });
 }
 
@@ -212,7 +218,7 @@ $(".btn").click(function(){
         'border':'1px solid  #e60000'
         });
         ime.val("");
-        ime.attr('placeholder','eg Aleksandar Arsic');
+        ime.attr('placeholder','e.g. Aleksandar Arsic');
     }
     else {
     ime.css({
@@ -233,7 +239,7 @@ $(".btn").click(function(){
         'border':'1px solid  #e60000'
         });
         email.val("");
-        email.attr('placeholder','eg aleksandar14@gmail.com');
+        email.attr('placeholder','e.g. aleksandar14@gmail.com');
     }
     else {
         email.css({
@@ -348,7 +354,7 @@ var validacija = $("#forma2");
         'border':'1px solid  #e60000'
         });
         email1.val("");
-        email1.attr('placeholder','eg aleksandar14@gmail.com');
+        email1.attr('placeholder','e.g. aleksandar14@gmail.com');
     }
     else {
         email1.css({
@@ -370,7 +376,7 @@ var validacija = $("#forma2");
         'border':'1px solid  #e60000'
         });
         ime1.val("");
-        ime1.attr('placeholder','eg Aleksandar Arsic');
+        ime1.attr('placeholder','e.g. Aleksandar Arsic');
     }
     else {
     ime1.css({

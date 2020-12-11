@@ -26,7 +26,13 @@ a{
 	text-decoration:none;
 	color:#000;
 }
-.meni li a {
+.meni {
+	display:block;
+}
+.meniResp{
+	display:none !important;
+}
+.meni li a, .meniResp li a{
     font-size:1.4rem;
     color:#363e50;
 	padding-bottom:2rem;
@@ -527,7 +533,7 @@ section.map #map {
 	.left-image img{
 		width:50%;
 	}
-	.meni{
+	.meni, .meniResp{
 		margin:10px auto;
 	}
 	.rp{
@@ -558,18 +564,21 @@ section.map #map {
 		padding-top:2rem;
 	}
 }
+
 @media screen and (max-width:640px){
 	.hamb{
 		display:block;
 	}
-	.meni{
-		opacity:1;
+	.meniResp{
+		display:block !important;
 		flex-direction: column;
 		justify-content: space-between;
-	}	
+		padding-bottom:10px;
+	}
+	.meni{
+		display:none !important;
+	}
 	#hed{
 		border-bottom:1px solid #eaf0ff;
 	}
 }
-
-
